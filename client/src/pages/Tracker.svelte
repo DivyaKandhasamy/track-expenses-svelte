@@ -30,7 +30,7 @@
     })
     onMount(async () => {
       loading = true;
-      const { data } = await axios.get(`https://track-expenses-svelte.vercel.app//api/transactions/?id=${$userDetails._id}`);
+      const { data } = await axios.get(`https://track-expenses-svelte.vercel.app/api/transactions/?id=${$userDetails._id}`);
       $transactions = data;
       loading = false;
     });
