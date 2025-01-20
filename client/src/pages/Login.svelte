@@ -53,7 +53,7 @@
 
       if (!errors.email && !errors.password) {
         try {
-          const {data} = await axios.post("https://track-expense-svelte.vercel.app/api/user/login", loginDetails);
+          const {data} = await axios.post("https://track-expenses-svelte.vercel.app/api/user/login", loginDetails);
             if(data.result == 'success'){
               $loginSucess = true;
               $userDetails = data.user;

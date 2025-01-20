@@ -30,7 +30,7 @@
     })
     onMount(async () => {
       loading = true;
-      const { data } = await axios.get(`https://track-expense-svelte.vercel.app/api/transactions/?id=${$userDetails._id}`);
+      const { data } = await axios.get(`https://track-expenses-svelte.vercel.app//api/transactions/?id=${$userDetails._id}`);
       $transactions = data;
       loading = false;
     });
@@ -60,14 +60,14 @@
         value: typeOfTransaction === "+" ? input : input * -1,
         id: $userDetails._id
       };
-      const response = await axios.post("https://track-expense-svelte.vercel.app/api/transactions/", transaction);
+      const response = await axios.post("https://track-expenses-svelte.vercel.app/api/transactions/", transaction);
       $transactions = [response.data, ...$transactions];
       loading = false;
       input = '';
     }
     async function removeTransaction(id) {
       loading = true;
-      const response = await axios.delete("https://track-expense-svelte.vercel.app/api/transactions/" + id);
+      const response = await axios.delete("https://track-expenses-svelte.vercel.app/api/transactions/" + id);
       if (response.data.id === id) {
         $transactions = $transactions.filter(t => t._id !== id);
       }
